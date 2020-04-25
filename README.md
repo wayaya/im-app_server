@@ -41,3 +41,10 @@ UNDER MIT LICENSE. 详情见LICENSE文件
 
 #### 使用阿里云短信
 请参考说明[使用阿里云短信](./aliyun_sms.md)
+
+### 本地调试
+```shell script
+# 打包
+shell> mvn -Dmaven.test.skip=true clean package
+shell> mvn clean package
+```
