@@ -16,7 +16,7 @@ mvn package
 
 #### 修改配置
 本演示服务有4个配置文件在工程的```config```目录下，分别是```application.properties```, ```im.properties```, ```aliyun_sms.properties```和```tencent_sms.properties```。请正确配置放到jar包所在的目录下的```config```目录下。
-> ```application.properties```配置中的```sms.verdor```决定是使用那个短信服务商，1为腾讯短信，2为阿里云短信
+> ```application.properties```配置中的```sms.vendor```决定是使用那个短信服务商，1为腾讯短信，2为阿里云短信
 
 #### 运行
 在```target```目录找到```app-XXXX.jar```，把jar包和放置配置文件的```config```目录放到一起，然后执行下面命令：
