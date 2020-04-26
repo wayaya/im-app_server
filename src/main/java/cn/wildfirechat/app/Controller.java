@@ -1,6 +1,9 @@
 package cn.wildfirechat.app;
 
 import cn.wildfirechat.app.pojo.*;
+import com.alibaba.fastjson.JSON;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -9,6 +12,8 @@ import java.io.IOException;
 
 @RestController
 public class Controller {
+    private static final Logger logger = LoggerFactory.getLogger(Controller.class);
+
     @Autowired
     private Service mService;
 
@@ -24,6 +29,7 @@ public class Controller {
 
     @PostMapping(value = "/login", produces = "application/json;charset=UTF-8")
     public Object login(@RequestBody LoginRequest request) {
+        logger.debug("request:{}", JSON.toJSONString(request));
         return mService.login(request.getMobile(), request.getCode(), request.getClientId(), request.getPlatform() == null ? 0 : request.getPlatform());
     }
 
@@ -68,6 +74,7 @@ public class Controller {
         return mService.getGroupAnnouncement(request.groupId);
     }
 
+    @SuppressWarnings("unused")
     @PostMapping(value = "/user/online_event")
     public Object onUserOnlineEvent(@RequestBody String request) {
         return "hello";

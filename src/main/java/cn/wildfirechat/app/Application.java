@@ -16,7 +16,7 @@ public class Application {
 
 	/**
 	 * 文件上传配置
-	 * @return
+	 * @return 配置文件对象
 	 */
 	@Bean
 	public MultipartConfigElement multipartConfigElement() {

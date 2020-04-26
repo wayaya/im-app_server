@@ -47,4 +47,6 @@ UNDER MIT LICENSE. 详情见LICENSE文件
 # 打包
 shell> mvn -Dmaven.test.skip=true clean package
 shell> mvn clean package
+# 开启远程调试端口
+shell> java -jar -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspenn,address=8787 app-0.41.jar > log.log 2>&1  
 ```
