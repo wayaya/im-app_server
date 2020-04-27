@@ -44,7 +44,7 @@ public class DBSessionDao implements SessionDAO {
     @Override
     public void update(Session session) throws UnknownSessionException {
         byte[] bb = sessionToByte(session);
-        ShiroSession shiroSession = new ShiroSession((String)session.getId(), bb);
+        ShiroSession shiroSession = new ShiroSession((String) session.getId(), bb);
 //        sessionMap.put(session.getId(), session);
         shiroSessionRepository.save(shiroSession);
     }
@@ -60,7 +60,7 @@ public class DBSessionDao implements SessionDAO {
     }
 
     // convert session object to byte, then store it to redis
-    private byte[] sessionToByte(Session session){
+    private byte[] sessionToByte(Session session) {
         ByteArrayOutputStream bo = new ByteArrayOutputStream();
         byte[] bytes = null;
         try {
@@ -74,7 +74,7 @@ public class DBSessionDao implements SessionDAO {
     }
 
     // restore session
-    private Session byteToSession(byte[] bytes){
+    private Session byteToSession(byte[] bytes) {
         ByteArrayInputStream bi = new ByteArrayInputStream(bytes);
         ObjectInputStream in;
         SimpleSession session = null;
